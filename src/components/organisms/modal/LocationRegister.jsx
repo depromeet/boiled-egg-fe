@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import Axios from "axios";
 import "./LocationRegister.scss";
 import { AddressBlock } from "../../molecules";
@@ -11,6 +11,10 @@ const LocationRegister = props => {
 	const modalClose = () => {
 		setVisible(false);
 	};
+
+	const changeAddress = useCallback(address => {
+		setAddress(address);
+	}, []);
 	const handleClickSearch = () => {
 		if (searchKeyword.length === 0) {
 			return;
@@ -32,15 +36,7 @@ const LocationRegister = props => {
 		})
 			.then(res => {
 				console.log(res);
-				setsearchResult(
-					res.data.results.juso.map(j => (
-						<AddressBlock
-							setAddress={setAddress}
-							roadAddr={j.roadAddr}
-							jibunAddr={j.jibunAddr}
-						/>
-					))
-				);
+				setsearchResult(res.data.results.juso);
 			})
 			.catch(e => {
 				console.log(e);
@@ -50,6 +46,10 @@ const LocationRegister = props => {
 		if (e.key === "Enter") {
 			handleClickSearch();
 		}
+	};
+	const handleClickRegister = () => {
+		localStorage.setItem("userLocation", address);
+		modalClose();
 	};
 	return (
 		<>
@@ -69,13 +69,24 @@ const LocationRegister = props => {
 						<button onClick={handleClickSearch}></button>
 					</div>
 					{searchResult.length > 0 ? (
-						<div className="serch-result">{searchResult}</div>
+						<div className="serch-result">
+							{searchResult.map(j => (
+								<AddressBlock
+									setAddress={changeAddress}
+									roadAddr={j.roadAddr}
+									jibunAddr={j.jibunAddr}
+									selected={address === j.roadAddr}
+								/>
+							))}
+						</div>
 					) : (
 						""
 					)}
 				</div>
 				<div className="button-wrap">
-					<button>내 위치 등록하기 </button>
+					<button onClick={handleClickRegister}>
+						내 위치 등록하기{" "}
+					</button>
 				</div>
 			</div>
 		</>

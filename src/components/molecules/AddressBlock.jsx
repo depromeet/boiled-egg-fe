@@ -1,12 +1,15 @@
 import React from "react";
 
 const AddressBlock = props => {
-	const { roadAddr, jibunAddr, setAddress } = props;
+	const { roadAddr, jibunAddr, setAddress, selected } = props;
 	const handleClick = e => {
-		setAddress('')
+		setAddress(roadAddr);
 	};
 	return (
-		<div className="AddressBlock">
+		<div
+			className={`AddressBlock ${selected ? "selected" : ""}`}
+			onClick={handleClick}
+		>
 			<div className="row">
 				<p className="sub-title">도로명 주소</p>
 				<p className="result bold">{roadAddr}</p>
