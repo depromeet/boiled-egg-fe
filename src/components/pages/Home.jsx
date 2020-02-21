@@ -5,9 +5,13 @@ import tv from "../../resources/images/mainPage/tv.png";
 import tvLight from "../../resources/images/mainPage/tv_light.png";
 import logoSymbol from "../../resources/images/mainPage/logo_symbol.png";
 import cassette from "../../resources/images/mainPage/cassette.png";
+import sideBookBg from "../../resources/images/mainPage/side_book_bg.png";
+import doubleQuoteStart from "../../resources/images/common/double_quote_start.png";
+import doubleQuoteEnd from "../../resources/images/common/double_quote_end.png";
 import bookSample from "../../resources/images/mainPage/book_sample.png";
 import bookSample2 from "../../resources/images/mainPage/book_sample2.png";
 import bookSample3 from "../../resources/images/mainPage/book_sample3.png";
+import bookMore from "../../resources/images/mainPage/arrow.svg";
 import "./Home.scss";
 import { HomeBook } from "../molecules";
 import { LocationRegister } from "../organisms";
@@ -92,17 +96,23 @@ const Home = () => {
 					src={tvLight}
 				></img>
 			</div>
-			<div className="Home_div-location">
-				<img src={cassette} />
-				<button
-					className="Home_div-location-btn"
-					onClick={handleClickRegisterLocation}
-				>
-					내 위치
-					<br />
-					재설정
-				</button>
+			<div className="Home_flex_box">
+				<div className="Home_flex_box-item">
+					<img src={cassette} />
+					<button
+						className="Home_button-location"
+						onClick={handleClickRegisterLocation}
+					>
+						내 위치
+						<br />
+						재설정
+					</button>
+				</div>
+				<div className="Home_flex_box-item">
+					<img src={sideBookBg} />
+				</div>
 			</div>
+			<div></div>
 			<div className="Best">
 				<HomeBook
 					color="red"
@@ -123,7 +133,13 @@ const Home = () => {
 					bookTitle={"나는\n나로\n살기로\n했다"}
 				/>
 			</div>
-			{/* <div className="Home_arrow"></div> */}
+			<div className="Home_div-quotes">
+				<img src={doubleQuoteStart}></img>
+				<img src={doubleQuoteEnd}></img>
+			</div>
+			<div className="go-to-list">
+				more<img src={bookMore} alt={bookMore}></img>
+			</div>
 		</main>
 	);
 };

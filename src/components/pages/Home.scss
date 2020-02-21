@@ -1,225 +1,260 @@
 // css 분리 필요
 @import "../../resources/common.scss";
 .Home {
-  margin: 0;
-  height: 100%;
-  position: relative;
-  scrollbar-width: none;
-  &_arrow {
-    position: absolute;
-    width: 110px;
-    height: 100px;
-    top: 0;
-    left: 830px;
-    mask: url(../../resources/images/mainPage/arrow.svg) no-repeat center;
-    background-color: #00b46a;
-    animation: Eldyd 0.7s ease-in 0s infinite alternate-reverse;
-  }
-  .Tv {
-    height: 100%;
-    position: absolute;
-    left: 155px;
-    &_img-tv {
-      position: absolute;
-      width: 707px;
-      top: 125px;
-      z-index: 1;
-    }
-    &_img-tv-light {
-      position: absolute;
-      width: 2097px;
-      height: 52%;
-      bottom: 0;
-      left: 223px;
-      z-index: 0;
-    }
-  }
-  .Home_div-title {
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    flex-wrap: wrap;
-    width: 507px;
-    left: 886px;
-    top: 85px;
-    h1 {
-      height: 141px;
-      width: 312px;
-      font-family: OTOmniGothicL;
-      font-size: 60px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.2;
-      letter-spacing: normal;
-      text-align: left;
-      color: #00b46a;
-      font-size: 60px;
-      margin: 0;
-      b {
-        font-family: OTOmniGothicB;
-      }
-    }
-    img {
-      width: 51.3px;
-      height: 56.3px;
-      margin: 11px 17px;
-    }
-    .Home_div-search {
-      font-family: OTOmniGothicM;
-      font-size: 24px;
-      color: #00b46a;
-      width: 507px;
-      height: 80px;
-      padding: 0 23px;
-      margin-top: 22px;
-      line-height: 80px;
-      border: solid 2px #00b46a;
-      background-image: url("../../resources/images/mainPage/search_icon.png");
-      background-repeat: no-repeat;
-      background-position: 95% 50%;
-      cursor: pointer;
-      input {
-        font-family: OTOmniGothicM;
-        border: none;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        width: 450px;
-        // line-height: 507px;
-        &::placeholder {
-          color: #00b46a;
-        }
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-  }
-  .Best {
-    position: absolute;
-    display: flex;
-    left: 1013px;
-    height: 60%;
-    bottom: 0%;
-    .Best_div {
-      display: flex;
-      position: relative;
-      width: 80vh;
-      &-info {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        height: 73%;
-        margin-left: 50px;
-        z-index: 1;
-        &-title {
-          width: 110px;
-          margin-left: 16px;
-          margin-top: 40%;
-          font-size: 28px;
-          line-height: 1.61;
-          color: #ffffff;
-          font-weight: normal;
-          line-height: 1.61;
-          font-family: OTOmniGothicM;
-        }
-      }
-      .more {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        top: 73%;
-        left: 390px;
-        z-index: 2;
-        font-family: OTOmniGothicM;
-        font-size: 24px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-        text-align: left;
-        color: #ffffff;
-        cursor: pointer;
-        img {
-          margin-left: 13px;
-        }
-      }
-    }
-    h3 {
-      margin: 0;
-      font-family: OTOmniGothicH;
-      font-size: 28px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.61;
-      letter-spacing: normal;
-      text-align: left;
-      color: #50231b;
-    }
-    &_img-book {
-      height: 100%;
-    }
-    &_book-bg {
-      position: absolute;
-      top: 20px;
-      height: 90%;
-      &-circle,
-      &-dot {
-        position: absolute;
-        height: 100%;
-        z-index: 0;
-      }
-      &-dot {
-        left: 80px;
-      }
-    }
-  }
-  &_div-location {
-    display: inline-block;
-    position: relative;
-    margin-left: 2190px;
-    margin-top: 30px;
-    img {
-      height: 36vh;
-    }
-    &-btn {
-      border: none;
-      position: absolute;
-      background: url("../../resources/images/mainPage/cassette_btn.png") no-repeat center;
-      background-size: contain;
-      width: 123.1px;
-      height: 123.1px;
-      top: 78.3px;
-      left: 80%;
-      font-family: OTOmniGothicM;
-      font-size: 21px;
-      line-height: 1.19;
-      letter-spacing: normal;
-      text-align: center;
-      color: #ffffff;
-      cursor: pointer;
-    }
-  }
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	margin: 0;
+	height: 100%;
+	width: 4250px;
+	position: relative;
+	scrollbar-width: none;
+	&_arrow {
+		position: absolute;
+		width: 110px;
+		height: 100px;
+		top: 0;
+		left: 830px;
+		mask: url(../../resources/images/mainPage/arrow.svg) no-repeat center;
+		background-color: #00b46a;
+		animation: Eldyd 0.7s ease-in 0s infinite alternate-reverse;
+	}
+	.Tv {
+		height: 100%;
+		position: absolute;
+		left: 155px;
+		&_img-tv {
+			position: absolute;
+			width: 707px;
+			top: 125px;
+			z-index: 1;
+		}
+		&_img-tv-light {
+			position: absolute;
+			width: 2097px;
+			height: 52%;
+			bottom: 0;
+			left: 223px;
+			z-index: 0;
+		}
+	}
+	.Home_div-title {
+		display: flex;
+		align-items: flex-end;
+		position: absolute;
+		flex-wrap: wrap;
+		width: 507px;
+		left: 886px;
+		top: 85px;
+		h1 {
+			height: 141px;
+			width: 312px;
+			font-family: OTOmniGothicL;
+			font-size: 60px;
+			font-weight: normal;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: 1.2;
+			letter-spacing: normal;
+			text-align: left;
+			color: #00b46a;
+			font-size: 60px;
+			margin: 0;
+			b {
+				font-family: OTOmniGothicB;
+			}
+		}
+		img {
+			width: 51.3px;
+			height: 56.3px;
+			margin: 11px 17px;
+		}
+		.Home_div-search {
+			font-family: OTOmniGothicM;
+			font-size: 24px;
+			color: #00b46a;
+			width: 507px;
+			height: 80px;
+			padding: 0 23px;
+			margin-top: 22px;
+			line-height: 80px;
+			border: solid 2px #00b46a;
+			background-image: url("../../resources/images/mainPage/search_icon.png");
+			background-repeat: no-repeat;
+			background-position: 95% 50%;
+			cursor: pointer;
+			input {
+				font-family: OTOmniGothicM;
+				border: none;
+				font-weight: normal;
+				font-stretch: normal;
+				font-style: normal;
+				width: 450px;
+				// line-height: 507px;
+				&::placeholder {
+					color: #00b46a;
+				}
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+	}
+	.Best {
+		position: absolute;
+		display: flex;
+		left: 1013px;
+		height: 60%;
+		bottom: 0%;
+		.Best_div {
+			display: flex;
+			position: relative;
+			width: 80vh;
+			&-info {
+				display: flex;
+				align-items: center;
+				position: absolute;
+				height: 73%;
+				margin-left: 50px;
+				z-index: 1;
+				&-title {
+					width: 110px;
+					margin-left: 16px;
+					margin-top: 40%;
+					font-size: 28px;
+					line-height: 1.61;
+					color: #ffffff;
+					font-weight: normal;
+					line-height: 1.61;
+					font-family: OTOmniGothicM;
+				}
+			}
+			.more {
+				display: flex;
+				align-items: center;
+				position: absolute;
+				top: 73%;
+				left: 390px;
+				z-index: 2;
+				font-family: OTOmniGothicM;
+				font-size: 24px;
+				font-weight: normal;
+				font-stretch: normal;
+				font-style: normal;
+				line-height: 1.5;
+				letter-spacing: normal;
+				text-align: left;
+				color: #ffffff;
+				cursor: pointer;
+				img {
+					margin-left: 13px;
+				}
+			}
+		}
+		h3 {
+			margin: 0;
+			font-family: OTOmniGothicH;
+			font-size: 28px;
+			font-weight: normal;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: 1.61;
+			letter-spacing: normal;
+			text-align: left;
+			color: #50231b;
+		}
+		&_img-book {
+			height: 100%;
+		}
+		&_book-bg {
+			position: absolute;
+			top: 20px;
+			height: 90%;
+			&-circle,
+			&-dot {
+				position: absolute;
+				height: 100%;
+				z-index: 0;
+			}
+			&-dot {
+				left: 80px;
+			}
+		}
+	}
+	&_flex_box {
+		display: flex;
+		justify-content: space-between;
+		margin-left: 2190px;
+		padding-right: 282px;
+		height: 100%;
+		width: 2000px;
+		position: relative;
+		padding-top: 30px;
+		box-sizing: border-box;
+		&-item {
+			position: relative;
+			img {
+				height: 36vh;
+			}
+			.Home_button-location {
+				border: none;
+				position: absolute;
+				background: url("../../resources/images/mainPage/cassette_btn.png")
+					no-repeat center;
+				background-size: contain;
+				width: 123.1px;
+				height: 123.1px;
+				top: 78.3px;
+				left: 80%;
+				font-family: OTOmniGothicM;
+				font-size: 21px;
+				line-height: 1.19;
+				letter-spacing: normal;
+				text-align: center;
+				color: #ffffff;
+				cursor: pointer;
+			}
+		}
+	}
+	&_div-quotes {
+		position: absolute;
+		bottom: 130px;
+		left: 443px;
+		width: 3250px;
+		display: flex;
+		z-index: 3;
+		justify-content: space-between;
+	}
+	.go-to-list {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		right: 55px;
+		height: 100%;
+		font-family: OTOmniGothicM;
+		font-size: 24px;
+		cursor: pointer;
+		img {
+			width: 104.4px;
+			height: 108px;
+			margin-left: 30px;
+		}
+	}
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 html,
 body,
 #root {
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 @keyframes Eldyd {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(10px);
-  }
+	0% {
+		transform: translateX(0px);
+	}
+	100% {
+		transform: translateX(10px);
+	}
 }
