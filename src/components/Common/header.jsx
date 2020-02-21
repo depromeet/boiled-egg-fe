@@ -51,11 +51,10 @@ class Header extends Component {
     };
     logout = () => {
         if (this.state.isLoginOn === false) {
-            window.location.assign("http://localhost:3000/login");
-
             this.setState((prevState, props) => ({
                 isLoginOn: !prevState.isLoginOn
-            }));
+			}));
+			window.location.href = "/login";
         } else {
             //로컬 스토리지에 값이 존재함
             console.log(this.state.isLoginOn);
@@ -65,7 +64,7 @@ class Header extends Component {
             }));
 
             localStorage.removeItem("userInfo");
-            window.location.assign("http://localhost:3000/");
+			window.location.href = "/";
         }
     };
 
