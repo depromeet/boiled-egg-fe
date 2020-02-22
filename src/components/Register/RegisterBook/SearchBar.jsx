@@ -1,10 +1,17 @@
 import React,{Fragment, Component} from "react";
 import styled from "styled-components";
-import appleFont from '../../font/AppleSDGothicNeoM.ttf';
+import appleFont from '../../../font/AppleSDGothicNeoM.ttf';
+import * as func from './BooksearchList.jsx';
+
 
 class SearchBar extends Component {
     state = {text: ''};
-
+    constructor(props){
+        super(props);
+        this.state = {
+          isToggleOn: true,
+        };
+    }
     onFormSubmit = e => {
         console.log(this.state.text);
         e.preventDefault();
@@ -14,7 +21,7 @@ class SearchBar extends Component {
 
     render(){
         return(
-            <Fragment>
+            <Wrapper isToggleOn={this.state.isToggleOn}>
             <SearchTitle>
                 1. 등록할 도서를 정해주세요.
             </SearchTitle>
@@ -24,13 +31,16 @@ class SearchBar extends Component {
                     onChange={(e) => this.setState({text: e.target.value})} style={{outline: 'none', color:'black'}}/>
                         <SearchButton>검색</SearchButton>
                     </form>
-            </Fragment>
+            </Wrapper>
     
         );
     }
        
 }
-
+const Wrapper = styled.div`
+    position: absolute;
+    top:  ${props => props.isToggleOn? "":"-100px"}
+`;
 
 const Span = styled.div`
     background-color: #ffde2b;
@@ -70,7 +80,7 @@ const SearchBox = styled.input`
     position:absolute;
     top: 520px; 
     left: 364px;
-    width: 647px;
+    width: 623px;
     height: 100px;
     border: solid 3px #4bab3f;
     background-color: #ffffff;

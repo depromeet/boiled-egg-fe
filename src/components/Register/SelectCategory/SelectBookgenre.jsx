@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import {Link} from 'react-router-dom';
-import Logo from "../Common/Logo";
-import Header from '../Common/header';
+import Logo from "../../Common/Logo";
+import Header from '../../Common/header';
 import styled from "styled-components";
-import font from '../../font/210옴니고딕040.ttf';
-import Next from '../../img/next.png';
-import Prev from '../../img/prev.png';
-import YellowCircle from '../../img/maskgroup2.png';
-import RedCircle from '../../img/redcircle342.png';
-import Yellowpath from '../../img/yellowpath20.png';
+import font from '../../../font/210옴니고딕040.ttf';
+import Next from '../../../img/next.png';
+import Prev from '../../../img/prev.png';
+import YellowCircle from '../../../img/maskgroup2.png';
+import RedCircle from '../../../img/redcircle342.png';
+import Yellowpath from '../../../img/yellowpath20.png';
 import Genre from './Bookgenre';
 
 class SelectBookgenre extends Component {
@@ -17,7 +17,7 @@ class SelectBookgenre extends Component {
     }
     render() {
         return (
-            <Fragment>
+            <Wrapper>
                 <Logo/>
                 <Header/>
                 <Button>
@@ -31,22 +31,25 @@ class SelectBookgenre extends Component {
                 <BackgroundRedCircle/>
                 <BackgroundYelloCircle/>
                 <BackgroundYelloPath/>
-                <Link to="/selectbookgenre">
+                <Link to="/rentalinfo">
                     <Nextbtn/>
                 </Link>
                     <Prevbtn onClick={this.goBack}/>
-            </Fragment>
+            </Wrapper>
         );
     }
 }
-
+const Wrapper = styled.div`
+    width: 1920px;
+    height: 1080px;
+`;
 const BackgroundYelloPath = styled.img.attrs({
     src: Yellowpath,
   })`
     position: absolute;
     top: 0px;
     left: 726px;
-
+    height: 1080px;
 `;
 const BackgroundYelloCircle = styled.img.attrs({
     src: YellowCircle,

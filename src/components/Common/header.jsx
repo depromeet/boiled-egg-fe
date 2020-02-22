@@ -158,10 +158,10 @@ const Button = styled.img`
 const Menubar = styled.img.attrs({
     src: menubar
 })`
-    width: 710.3px;
-    height: 1080px;
-    margin-right: -100px;
-    z-index: ${props => (props.isToggleOn ? "6" : "100")};
+  width: 710.3px;
+  height: 100%;
+  margin-right:-100px;
+  z-index: ${props=>props.isToggleOn? "6":"100"};
 `;
 const Login = styled.p`
     position: absolute;

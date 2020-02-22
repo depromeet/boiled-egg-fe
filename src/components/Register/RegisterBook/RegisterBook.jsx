@@ -1,19 +1,30 @@
 import React, { Component, Fragment } from 'react';
 import {Link} from 'react-router-dom';
-import Header from '../Common/header';
-import GreenCircle from '../../img/GreenCircle.png';
-import YellowCircle from '../../img/YellowCircle.png';
+import Header from '../../Common/header';
+import GreenCircle from '../../../img/GreenCircle.png';
+import YellowCircle from '../../../img/YellowCircle.png';
 import styled from "styled-components";
 import SearchBar from './SearchBar';
-import Next from '../../img/next.png';
-import font from '../../font/210옴니고딕020.ttf';
+import Next from '../../../img/next.png';
+import font from '../../../font/210옴니고딕020.ttf';
 import BooksearchList from './BooksearchList';
-import Logo from "../Common/Logo";
+import Logo from "../../Common/Logo";
+//import SelectedBook from "./SelectedBook";
 import axios from 'axios';
+import SelectedBook from './SelectedBook';
 
-//import axios from "axios";
 const http = 'http://boiled-egg-api.jaeyeonling.com:8080';
+const title = '{등록된 도서}';
+const registerInfo= JSON.parse(localStorage.getItem("regitserInfo"));
+
 class RegisterBook extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+          isToggleOn: true,   
+          isSelectOn: true,
+        };
+    }
     state={
         books:[]
     };
@@ -31,18 +42,24 @@ class RegisterBook extends Component {
                 value: text
             }
         }).then(response =>{
-            console.log(response);
-        }).catch(error=>{
-            console.log(error);
+            console.log(response.data);
+            this.setState({books: response.data})
+            this.setState((prevState) => ({
+                isToggleOn: false
+              }));
+        }).catch(error=>{   
+            this.setState((prevState) => ({
+                isToggleOn: true
+              }));
+            console.log("검색결과 없음:"+error);
         });
-        console.log("response:"+response);
-        this.setState({books: response});
+        
+        console.log(this.state.books);
     }
    
-    
-   
+  
     render() {
-        //const {books} = this.state;
+        const {books=[]} = this.state;
         return (
             <Fragment>
                 <Logo/>
@@ -54,19 +71,15 @@ class RegisterBook extends Component {
                 <CircleYellow/>
                 <CircleGreen/>
                 <ResultBox>
-                    <BooksearchList books={this.state.books}/>
-                    <ResultContents>
-                        검색결과가 없습니다.
-                    </ResultContents>
-                </ResultBox> 
-                {/*<BookList>
-                    {books.map(book=>(
-                        <BookList
-                        title={book.title}
-                        thumbnail={book.thumbnail}
-                        />
-                    ))}
-                    </BookList> */}
+                    {
+                        this.state.isToggleOn === true
+                        ? <ResultContents>
+                            검색결과가 없습니다.
+                          </ResultContents>
+                        : <BooksearchList books={books}/>
+                    }
+                </ResultBox>
+                  
                 <Link to="/selectbookgenre">
                     <Nextbtn/>
                 </Link>
@@ -74,7 +87,6 @@ class RegisterBook extends Component {
         );
     }
 }
-
 
 /*const BookList = styled.div`
     position: absolute;
@@ -148,7 +160,7 @@ const ResultBox = styled.div`
      left: 1133px;
      top:0px;
      background-color: #fffbeb;
-     z-index:3;
+     z-index:1;
 `;
 const Nextbtn = styled.img.attrs({
     src: Next,

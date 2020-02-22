@@ -2,13 +2,20 @@ import React, { Component, Fragment } from 'react';
 import styled from "styled-components";
 import Checkbox from './Checkbox';
 
+
 class Bookgenre extends Component {
-    state ={checked: false}
+    state ={checked: false, value:""};
 
-    handleCheckboxChange = event => {
-        this.setState({ checked: event.target.checked});
+    handleCheckboxChange = () => {
+        console.log("check");
+        this.setState(initialState=>({ 
+            
+            checked: !initialState.checked}));
     }
-
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+      }
     render() {
         const category_first = ['소설','시/에세이','경제경영','자기계발','인문','역사/문화'
     ,'정치/사회','건강/의학'];
@@ -16,29 +23,31 @@ class Bookgenre extends Component {
     ,'종교','가정/생활/요리','여행/취미','매거진'];
         const category_third = ['아동','유아','e 오디오북','북모닝CEO'
     ,'외국도서','국어/외국어','청소년교양'];
+
         const categorylist_first = category_first.map(
-        (category_first) => (
-            <div>
+        (category_first,index) => (
+            <div key={index}>
             <Checkbox
-            checked={this.state.checked}
-            onChange={this.handleCheckboxChange}/>
-            <Category>{category_first}</Category></div>)
+                checked={this.state.checked}
+                value={this.state.value} 
+                onChange={this.handleCheckboxChange}/>
+            <Category key={index}>{category_first}</Category></div>)
         );
         const categorylist_second = category_second.map(
-        (category_second) => (
-            <div>
+        (category_second,index) => (
+            <div key={index}>
             <Checkbox
-            checked={this.state.checked}
-            onChange={this.handleCheckboxChange}/>
-            <Category>{category_second}</Category></div>)
+                checked={this.state.checked}
+                onChange={this.handleCheckboxChange}/>
+            <Category  key={index}>{category_second}</Category></div>)
         );
         const categorylist_third = category_third.map(
-        (category_third) => (
-            <div>
+        (category_third,index) => (
+            <div key={index}>
             <Checkbox
-            checked={this.state.checked}
-            onChange={this.handleCheckboxChange}/>
-            <Category>{category_third}</Category></div>)
+                checked={this.state.checked}
+                onChange={this.handleCheckboxChange}/>
+            <Category  key={index}>{category_third}</Category></div>)
         );
        
 
@@ -47,7 +56,8 @@ class Bookgenre extends Component {
                 <BackgroudBox/>
                 <form onSubmit={this.onSubmit}>
                     <FormCheck>
-                        <Label>
+                        <Label
+                        onClick={this.handleCheckboxChange}>
                              {categorylist_first}
                         </Label>
                         <Label>
@@ -63,6 +73,7 @@ class Bookgenre extends Component {
         );
     }
 }
+
 const Category = styled.div`
     color:#000000;
     font-size:26px;
@@ -80,6 +91,7 @@ const Label = styled.div`
 `;
 const FormCheck = styled.div`
     width:230px;
+    height: 1080px;
     & ${Label}:nth-child(2){
     position:relative;
     left: 980px;
